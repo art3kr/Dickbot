@@ -14,7 +14,8 @@ def webhook():
 
   # We don't want to reply to ourselves!
   if data['name'] != 'DickBot':
-    msg = '{}, you sent "{}".'.format(data['name'], data['text'])
+    #msg = '{}, you sent "{}".'.format(data['name'], data['text'])
+    msg = 'hey'
     send_message(msg)
 
   return "ok", 200
