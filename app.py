@@ -12,13 +12,9 @@ app = Flask(__name__)
 def webhook():
   data = request.get_json()
 
-  log('Recieved {}'.format(data))
-  gID = data['group_id']
-
   # We don't want to reply to ourselves!
-  if data['name'] != 'DickBot':
-    #msg = '{}, you sent "{}".'.format(data['name'], data['text'])
-    msg = 'hey'
+  if data['name'] != 'apnorton-test-bot':
+    msg = '{}, you sent "{}".'.format(data['name'], data['text'])
     send_message(msg)
 
   return "ok", 200
@@ -32,5 +28,3 @@ def send_message(msg):
          }
   request = Request(url, urlencode(data).encode())
   json = urlopen(request).read().decode()
-
-
