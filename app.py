@@ -22,4 +22,4 @@ while True:
    		post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
 
-	time.sleep(1)
+	time.sleep(3)
