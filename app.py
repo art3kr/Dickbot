@@ -6,7 +6,7 @@ request_params = {'token': 'gDGDnvNxy2zQ82YIQJS4WTyBeTs73tC7j85tFpg0'}
 
 data = {
           'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
-          'text'   : 'tiddies',
+          'text'   : 'Steven a gay',
          }
 
 
@@ -22,4 +22,4 @@ while True:
    		post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
 
-	time.sleep(3)
+	time.sleep(1)
