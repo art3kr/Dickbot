@@ -5,13 +5,13 @@ request_params = {'token': 'gDGDnvNxy2zQ82YIQJS4WTyBeTs73tC7j85tFpg0'}
 # response_messages = requests.post('https://api.groupme.com/v3/groups/39366350/messages', params = request_params).json()['response']['messages']
 
 data = {
-          'bot_id' : '9cc0b27ac68c88c0ec058a1ec1',
+          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
           'text'   : 'tiddies',
          }
 
 
 while True:
-	read_messages = requests.get('https://api.groupme.com/v3/groups/39366350/messages', params = request_params).json()['response']['messages']
+	read_messages = requests.get('https://api.groupme.com/v3/groups/20300243/messages', params = request_params).json()['response']['messages']
 
 	# for message in read_messages:
 	print(read_messages[0]['text'])
