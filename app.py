@@ -17,7 +17,7 @@ def webhook():
 
   print(message_data)
 
-  if message_data['name'] != 'DickBot_heroku':
+  if message_data['name'] != 'DickBot':
     if message_data['text'] == 'Dickbot':
       msg = 'Hello, {}!'.format(message_data['name'])
       post_message(msg)
