@@ -25,9 +25,9 @@ def webhook():
       msg = 'Created by Antonio Trani. Build 4/13/18' 
       post_message(msg)
     if message_data['text'] == '!commands':
-      msg = 'List of commands \n !info...bot info \n Dickbot...greeting'
+      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n Steven...he gay'
       post_message(msg)
-    if 'Steven' in message_data['text']:
+    if 'Steven' or 'steven' in message_data['text']:
       msg = 'Just wanna chime in to say Steven is gay'
       post_message(msg)
 
