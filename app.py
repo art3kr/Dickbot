@@ -17,7 +17,7 @@ def webhook():
   message_data = request.get_json()
 
   print(message_data)
-  print(message_data['text'][0:10])
+  print(message_data['text'][0:5])
 
   if message_data['name'] != 'DickBot':
     if message_data['text'] == 'Dickbot':
