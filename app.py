@@ -26,6 +26,7 @@ def webhook():
       post_message(msg)
     if message_data['text'] == '!commands':
       msg = 'List of commands \n !info...bot info \n Dickbot...greeting'
+      post_message(msg)
 
   return "nice", 200
 
