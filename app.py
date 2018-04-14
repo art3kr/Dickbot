@@ -17,7 +17,7 @@ def webhook():
 
   print(message_data)
 
-  if message_data['text'] == 'Dickbot' and message_data['name'] != 'Dickbot':
+  if message_data['text'] == 'Dickbot' and message_data['name'] != 'newdick':
     post_message(msg)
 
   return "nice", 200
