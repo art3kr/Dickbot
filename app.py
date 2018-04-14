@@ -32,7 +32,7 @@ def webhook():
 
 def post_message(msg):
   data = {
-          'bot_id' : 'b63310218dbf4c7b3880291f61',
+          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
           'text'   : msg,
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
