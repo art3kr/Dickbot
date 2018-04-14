@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import wikipedia
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -27,9 +28,9 @@ def webhook():
     if message_data['text'] == '!commands':
       msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n Steven...he gay'
       post_message(msg)
-    if 'Steven' or 'steven' in message_data['text']:
-      msg = 'Just wanna chime in to say Steven is gay'
-      post_message(msg)
+    # if 'Steven' or 'steven' in message_data['text']:
+    #   msg = 'Just wanna chime in to say Steven is gay'
+    #   post_message(msg)
 
   return "nice", 200
 

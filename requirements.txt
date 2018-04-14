@@ -1,4 +1,5 @@
 Flask==0.12
 gunicorn==19.6.0
 requests==2.18.4
+wikipedia==1.4.0
 
