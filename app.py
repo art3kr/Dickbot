@@ -17,7 +17,7 @@ def webhook():
 
   print(message_data)
 
-  if message_data['name'] != 'newdick':
+  if message_data['name'] != 'DickBot_heroku':
     if message_data['text'] == 'Dickbot':
       msg = 'Hello, {}!'.format(message_data['name'])
       post_message(msg)
@@ -29,7 +29,7 @@ def webhook():
 
 def post_message(msg):
   data = {
-          'bot_id' : '9cc0b27ac68c88c0ec058a1ec1',
+          'bot_id' : '1c78008e0593154b5c04be0a87',
           'text'   : msg,
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
