@@ -34,7 +34,6 @@ def webhook():
     if message_data['text'][0:4] == '!wiki':
       wiki_query = message_data['text'][5:]
       wikisearch(wiki_query)
-      post_message(msg)
 
 
   return "nice", 200
@@ -53,7 +52,7 @@ def wikisearch(wiki_query):
   try: 
     if try_search == 1:
       summary = wikipedia.summary(wiki_query, sentences = 3)
-      msg = summary
+      post_message(summary)
       
   except wikipedia.exceptions.DisambiguationError:
     print('cannot open summary',wiki_query,'Disambiguation Error')
