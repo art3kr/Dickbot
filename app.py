@@ -31,10 +31,10 @@ def webhook():
     # if 'Steven' or 'steven' in message_data['text']:
     #   msg = 'Just wanna chime in to say Steven is gay'
     #   post_message(msg)
-    if message_data['text'][0:4] == '!wiki':
-      wiki_query = message_data['text'][5:]
+    if message_data['text'][0:6] == '!wiki':
+      wiki_query = message_data['text'][8:]
       wikisearch(wiki_query)
-      post_message(message_data['text'][0:4])
+      post_message(message_data['text'][0:6])
 
 
   return "nice", 200
