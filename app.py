@@ -18,10 +18,10 @@ def webhook():
   print(message_data)
 
   if message_data['name'] != 'newdick':
-    if message_data['text'] == 'Dickbot'
+    if message_data['text'] == 'Dickbot':
       msg = 'Hello! {}'.format(message_data['name'])
       post_message(msg)
-    if message_data['text'] == '!info'
+    if message_data['text'] == '!info':
       msg = 'Created by Antonio Trani. Build 4/13/18' 
 
   return "nice", 200
