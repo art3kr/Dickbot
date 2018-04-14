@@ -9,12 +9,25 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+msg = 'Dickbot'
+
 @app.route('/', methods=['POST'])
 def webhook():
-  data = request.get_json()
-  print(data)
+  message_data = request.get_json()
+
+  print(message_data)
+
+  if message_data['text'] == 'Dickbot' and message_data['name'] != 'Dickbot':
+    post_message(msg)
 
   return "nice", 200
+
+def post_message(msg):
+  data = {
+          'bot_id' : '9cc0b27ac68c88c0ec058a1ec1',
+          'text'   : msg,
+         }
+  post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
 
 
