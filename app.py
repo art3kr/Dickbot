@@ -31,13 +31,35 @@ def webhook():
     # if 'Steven' or 'steven' in message_data['text']:
     #   msg = 'Just wanna chime in to say Steven is gay'
     #   post_message(msg)
+    if message_data['text'][0:4] == '!wiki':
+      wiki_query = message_data['text'][5:]
+      wikisearch(wiki_query)
+      post_message(msg)
+
 
   return "nice", 200
 
 def post_message(msg):
   data = {
-          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
+          'bot_id' : 'b63310218dbf4c7b3880291f61',
           'text'   : msg,
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
+
+def wikisearch(wiki_query):
+  # wiki_query = wikipedia.suggest(wiki_query)
+  try_search = 1
+  try: 
+    if try_search == 1:
+      summary = wikipedia.summary(wiki_query, sentences = 3)
+      msg = summary
+      
+  except wikipedia.exceptions.DisambiguationError:
+    print('cannot open summary',wiki_query,'Disambiguation Error')
+    try_search = 0
+    
+  except wikipedia.exceptions.PageError:
+    print('cannot open summary',wiki_query,'Page Error')
+    try_search = 0
+    
