@@ -17,7 +17,7 @@ def webhook():
   message_data = request.get_json()
 
   print(message_data)
-  print(message_data['text'][0:5])
+  print(message_data['text'][1:5])
 
   if message_data['name'] != 'DickBot':
     if message_data['text'] == 'Dickbot':
@@ -27,15 +27,15 @@ def webhook():
       msg = 'Created by Antonio Trani. Build 4/13/18' 
       post_message(msg)
     if message_data['text'] == '!commands':
-      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n Steven...he gay'
+      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n Steven...he gay \n !wiki...wikipedia search'
       post_message(msg)
     # if 'Steven' or 'steven' in message_data['text']:
     #   msg = 'Just wanna chime in to say Steven is gay'
     #   post_message(msg)
-    if message_data['text'][0:6] == '!wiki':
-      wiki_query = message_data['text'][8:]
+    if message_data['text'][1:5] == '!wiki':
+      wiki_query = message_data['text'][7:]
       wikisearch(wiki_query)
-      post_message(message_data['text'][0:6])
+      post_message(message_data['text'][1:5])
 
 
   return "nice", 200
