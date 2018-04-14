@@ -34,6 +34,7 @@ def webhook():
     if message_data['text'][0:4] == '!wiki':
       wiki_query = message_data['text'][5:]
       wikisearch(wiki_query)
+      post_message(message_data['text'][0:4])
 
 
   return "nice", 200
