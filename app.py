@@ -1,25 +1,34 @@
+import os
+import json
 import requests
-import time
 
-request_params = {'token': 'gDGDnvNxy2zQ82YIQJS4WTyBeTs73tC7j85tFpg0'}
-# response_messages = requests.post('https://api.groupme.com/v3/groups/39366350/messages', params = request_params).json()['response']['messages']
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
-data = {
-          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
-          'text'   : 'Steven a gay',
-         }
+from flask import Flask, request
 
+app = Flask(__name__)
 
-while True:
-	read_messages = requests.get('https://api.groupme.com/v3/groups/20300243/messages', params = request_params).json()['response']['messages']
-
-	# for message in read_messages:
-	print(read_messages[0]['text'])
- #   		#print(read_messages[-1])
- #   		if message[1]['text'] == 'Dickbot':
- #   			post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
-	if read_messages[0]['text'] == 'Dickbot':
-   		post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
+@app.route('/', methods=['POST'])
+def webhook():
+  data = request.get_json()
+  print(data)
 
 
-	time.sleep(1)
+
+#   # We don't want to reply to ourselves!
+#   if data['name'] != 'apnorton-test-bot':
+#     msg = '{}, you sent "{}".'.format(data['name'], data['text'])
+#     send_message(msg)
+
+#   return "ok", 200
+
+# def send_message(msg):
+#   url  = 'https://api.groupme.com/v3/bots/post'
+
+#   data = {
+#           'bot_id' : os.getenv('GROUPME_BOT_ID'),
+#           'text'   : msg,
+#          }
+#   request = Request(url, urlencode(data).encode())
+#   json = urlopen(request).read().decode()
