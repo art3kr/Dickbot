@@ -56,12 +56,12 @@ def wikisearch(wiki_query):
       post_message(summary)
       
   except wikipedia.exceptions.DisambiguationError:
-    msg = 'cannot open summary',{},'Disambiguation Error'.format(wiki_query)
+    msg = 'cannot open summary,{},Disambiguation Error'.format(wiki_query)
     post_message(msg)
     try_search = 0
     
   except wikipedia.exceptions.PageError:
-    msg = 'cannot open summary',{},'Page Error'.format(wiki_query)
+    msg = 'cannot open summary,{},Page Error'.format(wiki_query)
     post_message(msg)
     try_search = 0
     
