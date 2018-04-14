@@ -24,12 +24,14 @@ def webhook():
     if message_data['text'] == '!info':
       msg = 'Created by Antonio Trani. Build 4/13/18' 
       post_message(msg)
+    if message_data['text'] == '!commands':
+      msg = 'List of commands \n !info...bot info \n Dickbot...greeting'
 
   return "nice", 200
 
 def post_message(msg):
   data = {
-          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
+          'bot_id' : '1c78008e0593154b5c04be0a87',
           'text'   : msg,
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
