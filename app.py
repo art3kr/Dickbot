@@ -33,7 +33,7 @@ def webhook():
     #   msg = 'Just wanna chime in to say Steven is gay'
     #   post_message(msg)
     if '!wiki' in message_data['text'][0:5]:
-      wiki_query = message_data['text'][7:]
+      wiki_query = message_data['text'][6:]
       wikisearch(wiki_query)
 
 
@@ -56,10 +56,12 @@ def wikisearch(wiki_query):
       post_message(summary)
       
   except wikipedia.exceptions.DisambiguationError:
-    print('cannot open summary',wiki_query,'Disambiguation Error')
+    msg = 'cannot open summary',{},'Disambiguation Error'.format(wiki_query)
+    post_message(msg)
     try_search = 0
     
   except wikipedia.exceptions.PageError:
-    print('cannot open summary',wiki_query,'Page Error')
+    msg = 'cannot open summary',{},'Page Error'.format(wiki_query)
+    post_message(msg)
     try_search = 0
     
