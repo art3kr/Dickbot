@@ -17,8 +17,12 @@ def webhook():
 
   print(message_data)
 
-  if message_data['text'] == 'Dickbot' and message_data['name'] != 'newdick':
-    post_message(msg)
+  if message_data['name'] != 'newdick':
+    if message_data['text'] == 'Dickbot'
+      msg = 'Hello! {}'.format(message_data['name'])
+      post_message(msg)
+    if message_data['text'] == '!info'
+      msg = 'Created by Antonio Trani. Build 4/13/18' 
 
   return "nice", 200
 
@@ -29,21 +33,3 @@ def post_message(msg):
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
-
-
-#   # We don't want to reply to ourselves!
-#   if data['name'] != 'apnorton-test-bot':
-#     msg = '{}, you sent "{}".'.format(data['name'], data['text'])
-#     send_message(msg)
-
-#   return "ok", 200
-
-# def send_message(msg):
-#   url  = 'https://api.groupme.com/v3/bots/post'
-
-#   data = {
-#           'bot_id' : os.getenv('GROUPME_BOT_ID'),
-#           'text'   : msg,
-#          }
-#   request = Request(url, urlencode(data).encode())
-#   json = urlopen(request).read().decode()
