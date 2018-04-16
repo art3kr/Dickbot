@@ -4,6 +4,8 @@ import requests
 import wikipedia
 import datetime
 
+from googlesearch import search
+
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -18,7 +20,7 @@ def webhook():
   message_data = request.get_json()
 
   print(message_data)
-  print(message_data['text'][0:10])
+  print(message_data['text'][0:7])
 
   if message_data['name'] != 'DickBot':
     if message_data['text'] == 'Dickbot':
@@ -28,7 +30,7 @@ def webhook():
       msg = 'Created by Antonio Trani. Build {}'.format(datetime.date.today()) 
       post_message(msg)
     if message_data['text'] == '!commands':
-      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n Steven...he gay \n !wiki...wikipedia search'
+      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n !search...Google text search \n Steven...he gay \n !wiki...wikipedia search'
       post_message(msg)
     # if 'Steven' or 'steven' in message_data['text']:
     #   msg = 'Just wanna chime in to say Steven is gay'
@@ -36,13 +38,16 @@ def webhook():
     if '!wiki' in message_data['text'][0:5]:
       wiki_query = message_data['text'][6:]
       wikisearch(wiki_query)
+    if '!search' in message_data['text'][0:7]:
+      search_query = message_data['text'][8:]
+      googlesearch(search_query)
 
 
   return "nice", 200
 
 def post_message(msg):
   data = {
-          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
+          'bot_id' : 'b63310218dbf4c7b3880291f61',
           'text'   : msg,
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
@@ -55,7 +60,7 @@ def wikisearch(wiki_query):
     if try_search == 1:
       summary = wikipedia.summary(wiki_query, sentences = 3)
       summary_url = wikipedia.page(wiki_query).url
-      msg = '{} \n {}'.format(summary,summary_url)
+      msg = '{} \n{}'.format(summary,summary_url)
       post_message(msg)
       
   except wikipedia.exceptions.DisambiguationError:
@@ -68,3 +73,9 @@ def wikisearch(wiki_query):
     post_message(msg)
     try_search = 0
     
+def googlesearch(search_query):
+  url = []
+  for url in search(search_query, stop = 1):
+    urls.append(url)
+  msg = '{} \n{} \n{}'.format(urls[0],urls[1],urls[2])
+  post_message(msg)
