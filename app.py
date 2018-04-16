@@ -76,6 +76,6 @@ def google_search(search_query):
   urls = []
   for url in googlesearch.search(search_query, stop = 1):
     urls.append(url)
-  msg = '{} \n{} \n{}'.format(urls[0],urls[1],urls[2])
+  msg = '{} {} {}'.format(urls[0],urls[1],urls[2])
   print(msg)
-  # post_message(msg)
+  post_message(msg)
