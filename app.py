@@ -3,8 +3,7 @@ import json
 import requests
 import wikipedia
 import datetime
-
-from googlesearch import search
+import googlesearch
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -40,7 +39,7 @@ def webhook():
       wikisearch(wiki_query)
     if '!search' in message_data['text'][0:7]:
       search_query = message_data['text'][8:]
-      googlesearch(search_query)
+      google_search(search_query)
 
 
   return "nice", 200
@@ -73,9 +72,9 @@ def wikisearch(wiki_query):
     post_message(msg)
     try_search = 0
     
-def googlesearch(search_query):
+def google_search(search_query):
   url = []
-  for url in search(search_query, stop = 1):
+  for url in googlesearch.search(search_query, stop = 1):
     urls.append(url)
   msg = '{} \n{} \n{}'.format(urls[0],urls[1],urls[2])
   post_message(msg)
