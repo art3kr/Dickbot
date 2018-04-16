@@ -77,4 +77,5 @@ def google_search(search_query):
   for url in googlesearch.search(search_query, stop = 1):
     urls.append(url)
   msg = '{} \n{} \n{}'.format(urls[0],urls[1],urls[2])
+  pring(msg)
   # post_message(msg)
