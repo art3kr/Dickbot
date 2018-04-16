@@ -46,7 +46,7 @@ def webhook():
 
 def post_message(msg):
   data = {
-          'bot_id' : 'b63310218dbf4c7b3880291f61',
+          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
           'text'   : msg,
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
@@ -76,6 +76,6 @@ def google_search(search_query):
   urls = []
   for url in googlesearch.search(search_query, stop = 1):
     urls.append(url)
-  msg = '{} {} {}'.format(urls[0],urls[1],urls[2])
+  msg = '{} {} {} {} {}'.format(urls[0],urls[1],urls[2],urls[3],urls[4])
   print(msg)
   post_message(msg)
