@@ -25,7 +25,7 @@ def webhook():
       msg = 'Hello, {}!'.format(message_data['name'])
       post_message(msg)
     if message_data['text'] == '!info':
-      msg = 'Created by Antonio Trani. Build {}}'.format(datetime.date.today()) 
+      msg = 'Created by Antonio Trani. Build {}'.format(datetime.date.today()) 
       post_message(msg)
     if message_data['text'] == '!commands':
       msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n Steven...he gay \n !wiki...wikipedia search'
