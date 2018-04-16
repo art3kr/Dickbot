@@ -54,8 +54,8 @@ def wikisearch(wiki_query):
   try: 
     if try_search == 1:
       summary = wikipedia.summary(wiki_query, sentences = 3)
-      summary_url = wikipedia.page(wiki_query).url()
-      msg = summary + summary_url
+      summary_url = wikipedia.page(wiki_query).url
+      msg = '{} \n {}'.format(summary,summary_url)
       post_message(msg)
       
   except wikipedia.exceptions.DisambiguationError:
