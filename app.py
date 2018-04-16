@@ -73,7 +73,7 @@ def wikisearch(wiki_query):
     try_search = 0
     
 def google_search(search_query):
-  url = []
+  urls = []
   for url in googlesearch.search(search_query, stop = 1):
     urls.append(url)
   msg = '{} \n{} \n{}'.format(urls[0],urls[1],urls[2])
