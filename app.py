@@ -17,6 +17,7 @@ msg = 'Dickbot'
 @app.route('/', methods=['POST'])
 def webhook():
   message_data = request.get_json()
+  group_id = message_data['group_id']
 
   print(message_data)
   print(message_data['text'][0:7])
@@ -45,8 +46,12 @@ def webhook():
   return "nice", 200
 
 def post_message(msg):
+  if group_id = '20300243'
+    bot_id = 'f922569adbdbfdbfe3bb4b9f52'
+  if group_id = '40048618'
+    bot_id = 'b63310218dbf4c7b3880291f61'
   data = {
-          'bot_id' : 'f922569adbdbfdbfe3bb4b9f52',
+          'bot_id' : bot_id,
           'text'   : msg,
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
