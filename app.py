@@ -18,6 +18,7 @@ msg = 'Dickbot'
 def webhook():
   message_data = request.get_json()
   group_id = message_data['group_id']
+  global group_id
 
   print(message_data)
   print(message_data['text'][0:7])
