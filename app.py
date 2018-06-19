@@ -74,7 +74,7 @@ def wikisearch(wiki_query):
       post_message(msg)
       
   except wikipedia.exceptions.DisambiguationError:
-    msg = 'cannot open summary,{},Disambiguation Error'.format(wiki_query)
+    msg = 'cannot open summary: "{}" \nDisambiguation Error'.format(wiki_query)
     post_message(msg)
     try_search = 0
     
