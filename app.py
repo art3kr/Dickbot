@@ -4,6 +4,7 @@ import requests
 import wikipedia
 import datetime
 import googlesearch
+import giphypop
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -32,7 +33,7 @@ def webhook():
       msg = 'Created by Antonio Trani. Build {}'.format(datetime.date.today()) 
       post_message(msg)
     if message_data['text'] == '!commands':
-      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n !search...Google text search \n Steven...he gay \n !wiki...wikipedia search'
+      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n !gif...giphy search \n !search...Google text search \n Steven...he gay \n !wiki...wikipedia search'
       post_message(msg)
     # if 'Steven' or 'steven' in message_data['text']:
     #   msg = 'Just wanna chime in to say Steven is gay'
@@ -43,6 +44,10 @@ def webhook():
     if '!search' in message_data['text'][0:7]:
       search_query = message_data['text'][8:]
       google_search(search_query)
+    if '!gif' in message_data['text'][0:4]:
+	  giphy_query = message_data['text'][5:]
+	  giphy_search(giphy_query)
+
 
 
   return "nice", 200
@@ -90,3 +95,7 @@ def google_search(search_query):
   msg = '{} {} {} {} {}'.format(urls[0],urls[1],urls[2],urls[3],urls[4])
   print(msg)
   post_message(msg)
+
+def giphy_search(giphy_query):
+	msg = giphypop.Giphy().translate(giphy_query)
+	post_message(msg)
