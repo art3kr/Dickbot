@@ -77,14 +77,14 @@ def post_image(msg):
   if group_id == '40252458':
   	bot_id = 'ccd80a0c800d1da0a443c847f6'
 
-  image = {
+  attachments = {
           'type' : 'image',
           'url'  : msg,
           }
 
   data = {
           'bot_id'      : bot_id,
-          'attachments' : image,
+          'attachments' : [attachments],
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
