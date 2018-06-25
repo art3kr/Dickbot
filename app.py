@@ -67,6 +67,26 @@ def post_message(msg):
          }
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
+def post_image(msg):
+  if group_id == '20300243':
+    bot_id = 'f922569adbdbfdbfe3bb4b9f52'
+  if group_id == '40048618':
+    bot_id = 'b63310218dbf4c7b3880291f61'
+  if group_id == '39366350':
+    bot_id = '1c78008e0593154b5c04be0a87'
+  if group_id == '40252458':
+  	bot_id = 'ccd80a0c800d1da0a443c847f6'
+
+  image = {
+          'type' : "image",
+          'url'  : msg,
+          }
+
+  data = {
+          'bot_id'      : bot_id,
+          'attachments' : image,
+         }
+  post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
 def wikisearch(wiki_query):
   # wiki_query = wikipedia.suggest(wiki_query)
@@ -98,4 +118,4 @@ def google_search(search_query):
 
 def giphy_search(giphy_query):
 	msg = giphypop.Giphy().translate(giphy_query).url
-	post_message(msg)
+	post_image(msg)
