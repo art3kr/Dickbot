@@ -79,8 +79,8 @@ def post_image(msg):
 
   attachments = {
           'type' : 'image',
-          'url'  : msg,
-          }
+          'url'   : msg,
+         }
 
   data = {
           'bot_id'      : bot_id,
