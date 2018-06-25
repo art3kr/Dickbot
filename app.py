@@ -23,7 +23,7 @@ def webhook():
   group_id = message_data['group_id']
 
   print(message_data)
-  print(message_data['text'][0:7])
+  print(message_data['text'][0:4])
 
   if message_data['name'] != 'DickBot':
     if message_data['text'] == 'Dickbot':
@@ -97,5 +97,5 @@ def google_search(search_query):
   post_message(msg)
 
 def giphy_search(giphy_query):
-	msg = giphypop.Giphy().translate(giphy_query)
+	msg = giphypop.Giphy().translate(giphy_query).url
 	post_message(msg)
