@@ -45,8 +45,8 @@ def webhook():
       search_query = message_data['text'][8:]
       google_search(search_query)
     if '!gif' in message_data['text'][0:4]:
-		giphy_query = message_data['text'][5:]
-		giphy_search(giphy_query)
+	  giphy_query = message_data['text'][5:]
+	  giphy_search(giphy_query)
 
 
 
