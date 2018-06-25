@@ -78,7 +78,7 @@ def post_image(msg):
   	bot_id = 'ccd80a0c800d1da0a443c847f6'
 
   image = {
-          'type' : "image",
+          'type' : 'image',
           'url'  : msg,
           }
 
@@ -119,3 +119,4 @@ def google_search(search_query):
 def giphy_search(giphy_query):
 	msg = giphypop.Giphy().translate(giphy_query).url
 	post_image(msg)
+	post_message(msg)
