@@ -117,6 +117,6 @@ def google_search(search_query):
   post_message(msg)
 
 def giphy_search(giphy_query):
-	msg = giphypop.Giphy().translate(giphy_query).media_url
+	msg = giphypop.Giphy().translate(phrase=giphy_query).media_url
 	# post_image(msg)
 	post_message(msg)
