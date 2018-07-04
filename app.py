@@ -61,6 +61,8 @@ def post_message(msg):
     bot_id = '1c78008e0593154b5c04be0a87'
   if group_id == '40252458':
   	bot_id = 'ccd80a0c800d1da0a443c847f6'
+  if group_id == '40670730':
+  	bot_id = '22566247d9f91eb7147475446d'
   data = {
           'bot_id' : bot_id,
           'text'   : msg,
