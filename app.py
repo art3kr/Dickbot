@@ -136,9 +136,9 @@ def urban_dictionary_search(ud_query):
 		msg = msg + '\n'
 		msg = msg + d.example
 
-		if num == 2:
+		if num == 1:
 			break
-		elif num < 2:
+		elif num < 1:
 			msg = msg + '\n\n'
 
 	post_message(msg)
