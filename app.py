@@ -5,6 +5,7 @@ import wikipedia
 import datetime
 import googlesearch
 import giphypop
+import urbandictionary as ud
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -47,6 +48,9 @@ def webhook():
     if '!gif' in message_data['text'][0:4]:
       giphy_query = message_data['text'][5:]
       giphy_search(giphy_query)
+    if '!ud' in message_data['text'][0:3]:
+      ud_query = message_data['text'][4:]
+      urban_dictionary_search(ud_query)
 
 
 
@@ -121,4 +125,20 @@ def google_search(search_query):
 def giphy_search(giphy_query):
 	msg = giphypop.Giphy().translate(phrase=giphy_query).media_url
 	# post_image(msg)
+	post_message(msg)
+
+def urban_dictionary_search(ud_query):
+	definitions = ud.define(ud_query)
+	msg = ud_query + '\n\n'
+
+	for num, d in enumerate(definitions):
+		msg = msg + d.definition
+		msg = msg + '\n'
+		msg = msg + d.example
+
+		if num == 2:
+			break
+		elif num < 2:
+			msg = msg + '\n\n'
+
 	post_message(msg)
