@@ -34,7 +34,7 @@ def webhook():
       msg = 'Created by Antonio Trani. Build {}'.format(datetime.date.today()) 
       post_message(msg)
     if message_data['text'] == '!commands':
-      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n !gif...giphy search \n !search...Google text search \n !wiki...wikipedia search \n !ud...urband dictionary search'
+      msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n !gif...giphy search \n !search...Google text search \n !ud...urban dictionary search \n !wiki...wikipedia search'
       post_message(msg)
     # if 'Steven' or 'steven' in message_data['text']:
     #   msg = 'Just wanna chime in to say Steven is gay'
@@ -133,7 +133,7 @@ def urban_dictionary_search(ud_query):
 
 	for num, d in enumerate(definitions):
 		msg = msg + d.definition
-		msg = msg + '\n'
+		msg = msg + '\n\n'
 		msg = msg + d.example
 
 		if num == 0:
