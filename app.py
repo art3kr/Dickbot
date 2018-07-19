@@ -51,6 +51,10 @@ def webhook():
     if '!ud' in message_data['text'][0:3]:
       ud_query = message_data['text'][4:]
       urban_dictionary_search(ud_query)
+    if 'alexa' and 'play despacito' in message_data['text'].lower():
+      despacito_index = message_data['text'].lower()find('despacito') 
+      despacito_number = message_data['text'][despacito_index:despacito_index+2].strip()
+      despacito(despacito_number)
 
 
 
@@ -141,4 +145,12 @@ def urban_dictionary_search(ud_query):
 		elif num < 0:
 			msg = msg + '\n\n'
 
+	post_message(msg)
+
+def despacito(despacito_number):
+	msg = '''ɴᴏᴡ ᴘʟᴀʏɪɴɢ: Despacito {}
+
+			 ───────────────⚪────────────────────────────
+
+			 ◄◄⠀▐▐ ⠀►►⠀⠀ ⠀ 1:17 / 3:48 ⠀ ───○ 🔊⠀ ᴴᴰ ⚙ ❐ ⊏⊐'''.format(despacito_number)
 	post_message(msg)
