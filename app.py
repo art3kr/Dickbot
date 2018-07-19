@@ -148,7 +148,7 @@ def urban_dictionary_search(ud_query):
 	post_message(msg)
 
 def song(song_name):
-	msg = '''ɴᴏᴡ ᴘʟᴀʏɪɴɢ: Despacito {}
+	msg = '''ɴᴏᴡ ᴘʟᴀʏɪɴɢ: {}
 
 			 ───────────────⚪────────────────────────────
 
