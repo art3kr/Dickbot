@@ -52,7 +52,7 @@ def webhook():
       ud_query = message_data['text'][4:]
       urban_dictionary_search(ud_query)
     if 'alexa' and 'play despacito' in message_data['text'].lower():
-      despacito_index = message_data['text'].lower().find('despacito') 
+      despacito_index = message_data['text'].lower().find('despacito')+9 
       despacito_number = message_data['text'][despacito_index:despacito_index+2].strip()
       despacito(despacito_number)
 
