@@ -1,3 +1,4 @@
+from ids import id_dict
 import os
 import json
 import requests
@@ -61,16 +62,7 @@ def webhook():
   return "nice", 200
 
 def post_message(msg):
-  if group_id == '20300243':
-    bot_id = 'f922569adbdbfdbfe3bb4b9f52'
-  if group_id == '40048618':
-    bot_id = 'b63310218dbf4c7b3880291f61'
-  if group_id == '39366350':
-    bot_id = '1c78008e0593154b5c04be0a87'
-  if group_id == '40252458':
-  	bot_id = 'ccd80a0c800d1da0a443c847f6'
-  if group_id == '40670730':
-  	bot_id = '22566247d9f91eb7147475446d'
+  bot_id = id_dict[group_id]
   data = {
           'bot_id' : bot_id,
           'text'   : msg,
@@ -78,14 +70,7 @@ def post_message(msg):
   post = requests.post('https://api.groupme.com/v3/bots/post', params = data)
 
 def post_image(msg):
-  if group_id == '20300243':
-    bot_id = 'f922569adbdbfdbfe3bb4b9f52'
-  if group_id == '40048618':
-    bot_id = 'b63310218dbf4c7b3880291f61'
-  if group_id == '39366350':
-    bot_id = '1c78008e0593154b5c04be0a87'
-  if group_id == '40252458':
-  	bot_id = 'ccd80a0c800d1da0a443c847f6'
+  bot_id = id_dict[group_id]
 
   attachments = {
           'type' : 'image',
