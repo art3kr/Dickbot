@@ -37,9 +37,7 @@ def webhook():
     if message_data['text'] == '!commands':
       msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n !gif...giphy search \n !search...Google text search \n !ud...urban dictionary search \n !wiki...wikipedia search'
       post_message(msg)
-    # if 'Steven' or 'steven' in message_data['text']:
-    #   msg = 'Just wanna chime in to say Steven is gay'
-    #   post_message(msg)
+   
     if '!wiki' in message_data['text'][0:5]:
       wiki_query = message_data['text'][6:]
       wikisearch(wiki_query)
