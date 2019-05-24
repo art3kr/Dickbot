@@ -14,4 +14,6 @@ Description
 - To deploy Dickbot, you must make a Heroku account, create a local repository and push to Heroku.
 - This repository is missing the "id file" a text file with the unique bot and group ids for Dickbot to utilize (for security reasons).
 
-
+Update History
+#######
+5/1/19 - updated giphy to use new supported wrapper

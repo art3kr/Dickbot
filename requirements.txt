@@ -3,5 +3,5 @@ gunicorn==19.6.0
 requests==2.18.4
 wikipedia==1.4.0
 google==2.0.1
-giphypop==0.1
+giphy_client==1.0.0
 urbandictionary==1.1

@@ -5,7 +5,7 @@ import requests
 import wikipedia
 import datetime
 import googlesearch
-import giphypop
+import giphy_client
 import urbandictionary as ud
 
 from urllib.parse import urlencode
@@ -37,7 +37,9 @@ def webhook():
     if message_data['text'] == '!commands':
       msg = 'List of commands \n Dickbot...greeting \n !info...bot info \n !gif...giphy search \n !search...Google text search \n !ud...urban dictionary search \n !wiki...wikipedia search'
       post_message(msg)
-   
+    # if 'Steven' or 'steven' in message_data['text']:
+    #   msg = 'Just wanna chime in to say Steven is gay'
+    #   post_message(msg)
     if '!wiki' in message_data['text'][0:5]:
       wiki_query = message_data['text'][6:]
       wikisearch(wiki_query)
@@ -110,7 +112,12 @@ def google_search(search_query):
   post_message(msg)
 
 def giphy_search(giphy_query):
-	msg = giphypop.Giphy().translate(phrase=giphy_query).media_url
+	giphy_api_key = '4KDg2aAkejtT7elNuhrVqF4ArlKMi6wO'
+	rating = 'r'
+	limit = 1
+	api_instance = giphy_client.DefaultApi()
+
+	msg = api_instance.gifs_search_get(giphy_api_key, giphy_query, limit=limit, rating=rating).data[0].images.original.url
 	# post_image(msg)
 	post_message(msg)
 
